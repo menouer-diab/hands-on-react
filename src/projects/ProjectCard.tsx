@@ -5,45 +5,60 @@
 import { Project } from "./Project";
 
 function formatDescription(description: string): string {
-    return description.substring(0, 60) + '...';
+  return description.substring(0, 60) + "...";
 }
 
 // Define an interface for the passed properties
 interface ProjectCardProps {
-    project: Project;
+  project: Project;
 }
 
 function ProjectCard(props: ProjectCardProps) {
-    // consider the attribute project of ProjectCardProps
-    const { project } = props;
+  // consider the attribute project of ProjectCardProps
+  const { project } = props;
 
-    // copy card part from ProjectList.tsx
-    // return (
-    //     <div className="card">
-    //     <img src={project.imageUrl} alt={project.name}></img>
-    //     <section className="section dark">
-    //       <h5 className="strong">
-    //         <strong>{project.name}</strong>
-    //       </h5>
-    //       <p>{project.description}</p>
-    //       <p>Budget: {project.budget.toLocaleString()}</p>
-    //     </section>
-    //   </div>
-    // );
+  // Define an event-handler function. It is possible to define function constants or variables
+  // Test with developper tools to see the console outputs.
+  const handleEditClick = (projectToEdit: Project) => {
+    console.log(projectToEdit);
+  };
 
-    // replace with call to function formatDescription
-    return (
-        <div className="card">
-        <img src={project.imageUrl} alt={project.name}></img>
-        <section className="section dark">
-          <h5 className="strong">
-            <strong>{project.name}</strong>
-          </h5>
-          <p>{formatDescription(project.description)}</p>
-          <p>Budget: {project.budget.toLocaleString()}</p>
-        </section>
-      </div>
-    );
+  // copy card part from ProjectList.tsx
+  // return (
+  //     <div className="card">
+  //     <img src={project.imageUrl} alt={project.name}></img>
+  //     <section className="section dark">
+  //       <h5 className="strong">
+  //         <strong>{project.name}</strong>
+  //       </h5>
+  //       <p>{project.description}</p>
+  //       <p>Budget: {project.budget.toLocaleString()}</p>
+  //     </section>
+  //   </div>
+  // );
+
+  // replace with call to function formatDescription
+  return (
+    <div className="card">
+      <img src={project.imageUrl} alt={project.name}></img>
+      <section className="section dark">
+        <h5 className="strong">
+          <strong>{project.name}</strong>
+        </h5>
+        <p>{formatDescription(project.description)}</p>
+        <p>Budget: {project.budget.toLocaleString()}</p>
+        <button
+          className="bordered"
+          onClick={() => {
+            handleEditClick(project);
+          }}
+        >
+          <span className="icon-edit"></span>
+          Edit-Project
+        </button>
+      </section>
+    </div>
+  );
 }
 
 export default ProjectCard;
