@@ -1,5 +1,6 @@
 import React from "react";
 import { MOCK_PROJECTS } from "./MockProjects";
+import ProjectList from "./ProjectList";
 
 /* Notice Menouer: with this SyntaxError, the array elements will be not displayed 
 {MOCK_PROJECTS.forEach(p => <p>{p.description}</p>)}
@@ -21,13 +22,16 @@ function ProjectsPage() {
       <pre>{JSON.stringify(MOCK_PROJECTS, null, " ")}</pre>
     </>
   ); */
-  return (
+/*   return (
     <>
       {MOCK_PROJECTS.map((proj) => (
         <pre>{JSON.stringify(proj, null, " ")}</pre>
       ))}
     </>
-  );
+  ); */
+  return (
+    <ProjectList projects={MOCK_PROJECTS}></ProjectList>
+  )
 }
 
 export default ProjectsPage;
