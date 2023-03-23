@@ -11,16 +11,18 @@ function formatDescription(description: string): string {
 // Define an interface for the passed properties
 interface ProjectCardProps {
   project: Project;
+  onEdit:(project: Project) => void;
 }
 
 function ProjectCard(props: ProjectCardProps) {
   // consider the attribute project of ProjectCardProps
-  const { project } = props;
+  const { project, onEdit} = props;
 
   // Define an event-handler function. It is possible to define function constants or variables
   // Test with developper tools to see the console outputs.
   const handleEditClick = (projectToEdit: Project) => {
-    console.log(projectToEdit);
+    onEdit(projectToEdit);
+    //console.log(projectToEdit);
   };
 
   // copy card part from ProjectList.tsx

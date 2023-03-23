@@ -55,10 +55,17 @@ function ProjectList({ projects }: ProjectListProps) {
 
   // Replace with ProjectCard component
 
+  // 23.March Note: Menouer
+  // Add event Handler for Button-Click
+  // Lab 11: Communicating from Child to Parent Component
+  const handleEdit = (project: Project) => {
+    console.log(project);
+  };
+
   // work with an array items
   const items = projects.map((project) => (
     <div key={project.id} className="cols-sm">
-      <ProjectCard project={project}></ProjectCard>
+      <ProjectCard project={project} onEdit={handleEdit}></ProjectCard>
       <ProjectForm></ProjectForm>
     </div>
   ));
